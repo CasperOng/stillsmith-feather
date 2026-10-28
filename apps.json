@@ -1,35 +1,35 @@
 {
-  "name": "Frame Extractor",
+  "name": "Stillsmith",
   "subtitle": "Pull stills out of any video",
-  "description": "Unsigned Frame Extractor builds for signing with Feather.",
-  "iconURL": "https://raw.githubusercontent.com/CasperOng/frame-extraction-tool-feather/main/icons/FrameExtractor.png",
+  "description": "Unsigned Stillsmith builds for signing with Feather.",
+  "iconURL": "https://raw.githubusercontent.com/CasperOng/stillsmith-feather/main/icons/Stillsmith.png",
   "tintColor": "#0A84FF",
   "apps": [
     {
-      "name": "Frame Extractor",
-      "bundleIdentifier": "caspernyong.FrameExtractionTool",
+      "name": "Stillsmith",
+      "bundleIdentifier": "caspernyong.Stillsmith",
       "developerName": "Casper Ong",
       "subtitle": "Pull stills out of any video",
-      "localizedDescription": "Mark frames while a video plays, then save every one of them to your photo library at the video's own resolution. Videos can be chosen in the app or handed over from the share sheet, Files, AirDrop and frameextractor:// links.",
-      "iconURL": "https://raw.githubusercontent.com/CasperOng/frame-extraction-tool-feather/main/icons/FrameExtractor.png",
+      "localizedDescription": "Mark frames while a video plays, then save every one of them to your photo library at the video's own resolution. Videos can be chosen in the app or handed over from the share sheet, Files, AirDrop and stillsmith:// links.",
+      "iconURL": "https://raw.githubusercontent.com/CasperOng/stillsmith-feather/main/icons/Stillsmith.png",
       "tintColor": "#0A84FF",
       "category": "utilities",
       "appPermissions": {
         "entitlements": [],
         "privacy": {
-          "NSPhotoLibraryAddUsageDescription": "Frame Extractor saves the frames you extract to your photo library.",
-          "NSPhotoLibraryUsageDescription": "Frame Extractor reads the videos you choose and removes frames from your library when you delete them."
+          "NSPhotoLibraryAddUsageDescription": "Stillsmith saves the frames you extract to your photo library.",
+          "NSPhotoLibraryUsageDescription": "Stillsmith reads the videos you choose and removes frames from your library when you delete them."
         }
       },
       "versions": [
         {
-          "version": "1.6.0",
-          "buildVersion": "89",
-          "date": "2026-10-23",
-          "localizedDescription": "Version 1.6.0 (build 89) \u2014 unsigned, ready to sign with Feather.",
-          "downloadURL": "https://raw.githubusercontent.com/CasperOng/frame-extraction-tool-feather/main/ipas/FrameExtractionTool-1.6.0-89-7f1f5fb9.ipa",
-          "size": 1301723,
-          "sha256": "7f1f5fb957411c06ced04d7ffe00d0323f6dfc0b6992a34aca831e7548bbcd7a",
+          "version": "2.0.0",
+          "buildVersion": "90",
+          "date": "2026-10-28",
+          "localizedDescription": "Version 2.0.0 (build 90) \u2014 unsigned, ready to sign with Feather.",
+          "downloadURL": "https://raw.githubusercontent.com/CasperOng/stillsmith-feather/main/ipas/Stillsmith-2.0.0-90-a0f31bca.ipa",
+          "size": 1301019,
+          "sha256": "a0f31bca5117fca986247a8cec3bb8086fb691ed6befa9507d777c3b49dffb51",
           "minOSVersion": "17"
         }
       ]
