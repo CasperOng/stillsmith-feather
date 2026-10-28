@@ -1,7 +1,7 @@
-# Frame Extractor — Feather source
+# Stillsmith — Feather source
 
 A [Feather](https://github.com/khcrysalis/Feather) source for the unsigned builds of
-[Frame Extraction Tool](https://github.com/CasperOng/FrameExtractionTool), the iOS app
+[Stillsmith](https://github.com/CasperOng/Stillsmith), the iOS app
 that pulls still frames out of videos at the video's own resolution.
 
 ## Add it to Feather
@@ -10,10 +10,10 @@ that pulls still frames out of videos at the video's own resolution.
 2. Paste this URL:
 
    ```
-   https://raw.githubusercontent.com/CasperOng/frame-extraction-tool-feather/main/apps.json
+   https://raw.githubusercontent.com/CasperOng/stillsmith-feather/main/apps.json
    ```
 
-3. Install or update **Frame Extractor** from the source. Feather signs the IPA with your own certificate.
+3. Install or update **Stillsmith** from the source. Feather signs the IPA with your own certificate.
 
 The feed always points at the newest build the app repository has published.
 
@@ -22,7 +22,7 @@ The feed always points at the newest build the app repository has published.
 | Path | Purpose |
 | --- | --- |
 | `apps.json` | The Feather source itself |
-| `ipas/FrameExtractionTool-<version>-<build>-<sha>.ipa` | The newest unsigned build |
+| `ipas/Stillsmith-<version>-<build>-<sha>.ipa` | The newest unsigned build |
 | `icons/FrameExtractor.png` | Source and app icon |
 | `LATEST-BUILD.md` | Version, build, size and SHA-256 of the IPA |
 | `scripts/update_feed.py` | Downloads the newest IPA and rewrites the files above |
@@ -39,7 +39,7 @@ arrives, so the repository holds exactly one build.
 The app repository keeps a rolling pre-release tagged `latest`:
 
 ```
-https://github.com/CasperOng/FrameExtractionTool/releases/download/latest/FrameExtractionTool-unsigned.ipa
+https://github.com/CasperOng/Stillsmith/releases/download/latest/Stillsmith-unsigned.ipa
 ```
 
 `.github/workflows/refresh.yml` downloads that IPA, reads its version out of
@@ -51,7 +51,7 @@ Refresh Feed → Run workflow**), and does nothing when the feed is already curr
 
 To have a new build appear in Feather as soon as CI finishes it, add a secret to the
 **app** repository named `FEED_DISPATCH_TOKEN`: a fine-grained personal access token
-with *Contents: read and write* on `frame-extraction-tool-feather`. The build workflow
+with *Contents: read and write* on `stillsmith-feather`. The build workflow
 then dispatches `frame-extractor-build` to this repository. Without the secret the
 next scheduled run picks the build up instead.
 

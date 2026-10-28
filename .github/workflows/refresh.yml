@@ -9,7 +9,7 @@ on:
   workflow_dispatch:
     inputs:
       source_tag:
-        description: Release tag in CasperOng/FrameExtractionTool to publish
+        description: Release tag in CasperOng/Stillsmith to publish
         required: false
         default: latest
   repository_dispatch:
@@ -49,7 +49,7 @@ jobs:
     - name: Summarise
       run: |
         {
-          echo "## Frame Extractor feed"
+          echo "## Stillsmith feed"
           echo
           echo "| | |"
           echo "| --- | --- |"

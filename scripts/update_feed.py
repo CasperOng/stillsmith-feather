@@ -1,14 +1,14 @@
 #!/usr/bin/env python3
-"""Publish the newest unsigned Frame Extractor build into this Feather source.
+"""Publish the newest unsigned Stillsmith build into this Feather source.
 
 The app repository builds an unsigned IPA and keeps it at a stable URL:
 
-    https://github.com/CasperOng/FrameExtractionTool/releases/download/latest/FrameExtractionTool-unsigned.ipa
+    https://github.com/CasperOng/Stillsmith/releases/download/latest/Stillsmith-unsigned.ipa
 
 This script downloads that IPA (no token needed, the release is public), reads
 the version out of its Info.plist, and rewrites the files Feather reads here:
 
-    ipas/FrameExtractionTool-unsigned.ipa
+    ipas/Stillsmith-<version>-<build>-<sha>.ipa
     apps.json
     LATEST-BUILD.md
 
@@ -32,11 +32,11 @@ from urllib.request import Request, urlopen
 
 ROOT = Path(__file__).resolve().parents[1]
 
-SOURCE_REPO = os.environ.get("SOURCE_REPO", "CasperOng/FrameExtractionTool")
+SOURCE_REPO = os.environ.get("SOURCE_REPO", "CasperOng/Stillsmith")
 SOURCE_TAG = os.environ.get("SOURCE_TAG", "latest")
-SOURCE_ASSET = os.environ.get("SOURCE_ASSET", "FrameExtractionTool-unsigned.ipa")
+SOURCE_ASSET = os.environ.get("SOURCE_ASSET", "Stillsmith-unsigned.ipa")
 FEED_OWNER = os.environ.get("FEED_OWNER", "CasperOng")
-FEED_REPO = os.environ.get("FEED_REPO", "frame-extraction-tool-feather")
+FEED_REPO = os.environ.get("FEED_REPO", "stillsmith-feather")
 FEED_BRANCH = os.environ.get("FEED_BRANCH", "main")
 
 IPA_DIR = ROOT / "ipas"
@@ -47,8 +47,8 @@ RAW_BASE = f"https://raw.githubusercontent.com/{FEED_OWNER}/{FEED_REPO}/{FEED_BR
 
 # Everything about the app that does not change from build to build.
 APP = {
-    "name": "Frame Extractor",
-    "bundleIdentifier": "caspernyong.FrameExtractionTool",
+    "name": "Stillsmith",
+    "bundleIdentifier": "caspernyong.Stillsmith",
     "developerName": "Casper Ong",
     "subtitle": "Pull stills out of any video",
     "category": "utilities",
@@ -56,11 +56,11 @@ APP = {
     "localizedDescription": (
         "Mark frames while a video plays, then save every one of them to your photo "
         "library at the video's own resolution. Videos can be chosen in the app or "
-        "handed over from the share sheet, Files, AirDrop and frameextractor:// links."
+        "handed over from the share sheet, Files, AirDrop and stillsmith:// links."
     ),
     "privacy": {
-        "NSPhotoLibraryAddUsageDescription": "Frame Extractor saves the frames you extract to your photo library.",
-        "NSPhotoLibraryUsageDescription": "Frame Extractor reads the videos you choose and removes frames from your library when you delete them.",
+        "NSPhotoLibraryAddUsageDescription": "Stillsmith saves the frames you extract to your photo library.",
+        "NSPhotoLibraryUsageDescription": "Stillsmith reads the videos you choose and removes frames from your library when you delete them.",
     },
 }
 
@@ -146,11 +146,11 @@ def ipa_file_name(info: dict, digest: str) -> str:
     string the feed used to rely on, so a new build can be served from a stale
     cache entry. Giving every build its own path removes the ambiguity.
     """
-    return f"FrameExtractionTool-{info['version']}-{info['build']}-{digest[:8]}.ipa"
+    return f"Stillsmith-{info['version']}-{info['build']}-{digest[:8]}.ipa"
 
 
 def build_feed(info: dict, size: int, digest: str, built_at: datetime, ipa_name: str) -> dict:
-    icon_url = f"{RAW_BASE}/icons/FrameExtractor.png"
+    icon_url = f"{RAW_BASE}/icons/Stillsmith.png"
     version_entry = {
         "version": info["version"],
         "buildVersion": info["build"],
@@ -167,7 +167,7 @@ def build_feed(info: dict, size: int, digest: str, built_at: datetime, ipa_name:
     return {
         "name": APP["name"],
         "subtitle": APP["subtitle"],
-        "description": "Unsigned Frame Extractor builds for signing with Feather.",
+        "description": "Unsigned Stillsmith builds for signing with Feather.",
         "iconURL": icon_url,
         "tintColor": APP["tintColor"],
         "apps": [
@@ -201,7 +201,7 @@ def build_latest_markdown(info: dict, size: int, digest: str, built_at: datetime
 | **Size** | {size:,} bytes |
 | **SHA-256** | `{digest}` |
 | **Published** | {built_at.strftime('%Y-%m-%d %H:%M UTC')} |
-| **Source** | [FrameExtractionTool](https://github.com/{SOURCE_REPO}) |
+| **Source** | [Stillsmith](https://github.com/{SOURCE_REPO}) |
 
 Download: [ipas/{ipa_name}](ipas/{ipa_name}) — taken from {source_url}
 
@@ -255,7 +255,7 @@ def main() -> int:
     IPA_DIR.mkdir(parents=True, exist_ok=True)
     (IPA_DIR / ipa_name).write_bytes(ipa)
     # One build at a time: drop the previous IPA so the repository stays small.
-    for existing in IPA_DIR.glob("FrameExtractionTool-*.ipa"):
+    for existing in IPA_DIR.glob("Stillsmith-*.ipa"):
         if existing.name != ipa_name:
             existing.unlink()
             log(f"Removed {existing.relative_to(ROOT)}")
