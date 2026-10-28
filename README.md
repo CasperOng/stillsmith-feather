@@ -1,21 +1,29 @@
-# Stillsmith — Feather source
+# Stillsmith — app source
 
-A [Feather](https://github.com/khcrysalis/Feather) source for the unsigned builds of
-[Stillsmith](https://github.com/CasperOng/Stillsmith), the iOS app
-that pulls still frames out of videos at the video's own resolution.
+An AltStore-compatible source for the unsigned builds of
+[Stillsmith](https://github.com/CasperOng/Stillsmith), the iOS app that pulls still
+frames out of videos at the video's own resolution. It works in Feather, AltStore and
+SideStore.
 
-## Add it to Feather
+## Add it
 
-1. Open Feather → **Sources** → **+**
-2. Paste this URL:
+1. Open **Feather**, **AltStore** or **SideStore** → **Sources** → **+**
+2. Paste this address:
 
    ```
-   https://raw.githubusercontent.com/CasperOng/stillsmith-feather/main/apps.json
+   https://stillsmith.is-my.app/sources
    ```
 
-3. Install or update **Stillsmith** from the source. Feather signs the IPA with your own certificate.
+   The same file is served directly from this repository at
+   `https://raw.githubusercontent.com/CasperOng/stillsmith-feather/main/apps.json`.
 
-The feed always points at the newest build the app repository has published.
+3. Install or update **Stillsmith** from the source. The tool signs the IPA with your own certificate.
+
+On a Mac or PC, an IPA installer such as Sideloadly can use the newest build directly:
+`https://github.com/CasperOng/Stillsmith/releases/download/latest/Stillsmith-unsigned.ipa`.
+
+The feed always points at the newest build the app repository has published. The website
+mirrors `apps.json` at `stillsmith.is-my.app/sources` every six hours.
 
 ## What is in here
 
@@ -23,7 +31,7 @@ The feed always points at the newest build the app repository has published.
 | --- | --- |
 | `apps.json` | The Feather source itself |
 | `ipas/Stillsmith-<version>-<build>-<sha>.ipa` | The newest unsigned build |
-| `icons/FrameExtractor.png` | Source and app icon |
+| `icons/Stillsmith.png` | Source and app icon |
 | `LATEST-BUILD.md` | Version, build, size and SHA-256 of the IPA |
 | `scripts/update_feed.py` | Downloads the newest IPA and rewrites the files above |
 | `.github/workflows/refresh.yml` | Runs that script on a schedule |
