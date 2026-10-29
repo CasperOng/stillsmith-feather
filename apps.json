@@ -24,12 +24,12 @@
       "versions": [
         {
           "version": "2.0.1",
-          "buildVersion": "121",
+          "buildVersion": "124",
           "date": "2026-10-29",
-          "localizedDescription": "Version 2.0.1 (build 121) \u2014 unsigned, ready to sign with Feather.",
-          "downloadURL": "https://raw.githubusercontent.com/CasperOng/stillsmith-feather/main/ipas/Stillsmith-2.0.1-121-d3f29ee0.ipa",
-          "size": 1305923,
-          "sha256": "d3f29ee0c693fbce0a20a54acb44415f6a31f1e7f59fccea2322bcf14d7a02d8",
+          "localizedDescription": "Version 2.0.1 (build 124) \u2014 unsigned, ready to sign with Feather.",
+          "downloadURL": "https://raw.githubusercontent.com/CasperOng/stillsmith-feather/main/ipas/Stillsmith-2.0.1-124-edfe2777.ipa",
+          "size": 1305925,
+          "sha256": "edfe2777a15c746be7c3842cd454634b56ae1d947599ee0e6cf1d7f6d124ae28",
           "minOSVersion": "17"
         }
       ]
